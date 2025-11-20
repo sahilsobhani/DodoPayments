@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/app/components/app-sidebar"
 
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Dashboard({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
