@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { enqueue, getQueueLength } from "../../lib/queue";
-import { Loader2, CheckCircle2, XCircle, Anchor, Eraser } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, ArrowUpRight, Eraser } from "lucide-react";
 
 export default function DemoPage() {
   const [responses, setResponses] = useState<any[]>([]);
@@ -24,11 +24,11 @@ export default function DemoPage() {
 
 
   async function sendRequest() {
-    
+
     const randomId = counterVar;
     setCounterVar(counterVar + 1);
-    
-    const msg = `Welcome to Dodo Payments - Request ID: ${randomId}`;
+
+    const msg = `Welcome to Dodo Payments Demo by Sahil - The Request ID is ${randomId}`;
 
     setCurrent(msg);
 
@@ -42,7 +42,7 @@ export default function DemoPage() {
     setCurrent(null);
   }
 
-  // ---------------- UI Subcomponents ----------------
+  // Queue Status Card
 
   const QueueStatus = () => (
     <div className="p-6 rounded-xl bg-white shadow-inner border border-gray-200">
@@ -59,6 +59,9 @@ export default function DemoPage() {
       </div>
     </div>
   );
+
+
+  // Current Processing Card
 
   const CurrentProcessing = () => (
     <div className="p-6 rounded-md bg-white shadow-inner border border-gray-200">
@@ -85,17 +88,17 @@ export default function DemoPage() {
     </div>
   );
 
-  // ---------------- MAIN UI ----------------
+  // Main UI
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex">
+    <div className="min-h-screen bg-white text-gray-900 font-space flex">
       {/* LEFT SIDEBAR */}
       <div className="w-full lg:w-1/3 p-10 flex flex-col gap-5 border-r-2 border-blue-100 bg-white shadow-xl">
 
         {/* Title */}
         <div className="pb-4 border-b border-gray-200">
-          <h1 className="text-4xl tracking-medium font-inter text-gray-900">
-            API Throttle
+          <h1 className="text-4xl tracking-medium font-space text-gray-900">
+            Echo API Queue
           </h1>
           <p className="text-lg text-gray-400 mt-1">
             Visualizing API queue management.
@@ -105,18 +108,20 @@ export default function DemoPage() {
         {/* Button */}
         <button
           onClick={sendRequest}
-          className="w-full px-6 py-4 rounded-md text-lg font-semibold shadow-inner bg-blue-50 text-neutral-700 hover:bg-blue-100 active:scale-95 flex items-center justify-center gap-3 transition-all"
+          className="w-full px-6 py-4 rounded-md text-lg tracking-wide shadow-sm bg-blue-50/80 text-neutral-700 hover:bg-linear-to-r  hover:from-white hover:to-blue-50 hover:shadow-inner duration-200  flex items-center justify-center gap-3 transition-all"
         >
-          <Anchor className="w-6 h-6" />
+
           Enqueue New Request
+          <ArrowUpRight className="w-6 h-6" />
         </button>
 
         <button
           onClick={clearResponses}
-          className="w-full px-6 py-4 rounded-md text-lg font-semibold shadow-inner bg-orange-50 text-neutral-700 hover:bg-orange-100 active:scale-95 flex items-center justify-center gap-3 transition-all"
+          className="w-full px-6 py-4 rounded-md text-lg tracking-wide shadow-sm hover:shadow-inner bg-red-50/80 hover:bg-linear-to-r hover:from-white hover:to-red-50 duration-200 text-neutral-700 border-white flex items-center justify-center gap-3 transition-all"
         >
-          <Eraser className="w-6 h-6" />
+
           Clear Responses
+          <Eraser className="w-6 h-6" />
         </button>
 
         {/* Status Panels */}
@@ -127,12 +132,12 @@ export default function DemoPage() {
       </div>
 
       {/* RIGHT RESPONSE LOG */}
-      <div className="w-full lg:w-2/3 p-10 flex flex-col">
+      <div className="w-full lg:w-2/3 p-10 flex bg-linear-to-br from-white to-blue-50 flex-col">
         <h2 className="text-3xl font-thin mb-6 text-gray-800">
-           Response Log
+          Response Log
         </h2>
 
-        <div className="grow max-h-[80vh] bg-white rounded-md p-6 shadow-inner border border-gray-200 overflow-y-auto space-y-4">
+        <div className="grow max-h-[80vh] bg-white  rounded-md p-6 shadow-inner border border-gray-200 overflow-y-auto space-y-4">
 
           {responses.length === 0 ? (
             <div className="p-10 text-center text-gray-500 text-xl italic">
@@ -144,8 +149,8 @@ export default function DemoPage() {
               <div
                 key={res.id}
                 className={`p-4 rounded-md border ${res.ok
-                    ? "border-green-950  bg-green-50/20"
-                    : "border-red-100 bg-red-50"
+                  ? "border-green-950  bg-green-50/20"
+                  : "border-red-800 bg-red-50"
                   }`}
               >
                 <div className="flex items-center gap-3 mb-2">
@@ -156,11 +161,11 @@ export default function DemoPage() {
                   )}
 
                   <span className={`font-semibold text-lg ${res.ok ? "text-green-950" : "text-red-950"}`}>
-                    {res.ok ? "Success" : "Error"}
+                    {res.ok ? "Success" : "Rate Limit"}
                   </span>
 
                   <span className="text-sm font-mono text-neutral-900 ml-auto">
-                    {res.ok ? res.data.echo : res.error.echo}
+                    Message: "{res.ok ? res.data.echo : res.error.echo}"
                   </span>
                 </div>
 

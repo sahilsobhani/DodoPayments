@@ -51,7 +51,7 @@ async function processQueue() {
       const wait = WINDOW_MS - (now - earliest);
 
       console.log(
-        `⏳ Rate limit reached. Waiting ${(wait / 1000).toFixed(1)}s...`
+        ` Rate limit reached. Waiting ${(wait / 1000).toFixed(1)}s...`
       );
 
       await sleep(wait);
