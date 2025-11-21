@@ -1,22 +1,19 @@
 "use client";
 
 import {
-  LayoutDashboard,
-  CreditCard,
-  ArrowLeftRight,
-  History,
-  ReceiptText,
-  RefreshCcw,
-  Settings,
-  Headphones,
-  ChevronRight,
-  ShieldAlert,
-  Grid2X2
-} from "lucide-react";
+  RiLayoutGridLine,
+  RiBankCardLine,
+  RiHistoryLine,
+  RiBillLine,
+  RiSettings2Line,
+  RiHeadphoneLine,
+  RiArrowRightSLine,
+  RiArrowLeftRightLine,
+  RiExchangeDollarLine,
+} from "react-icons/ri";
 
 import ApexLogo from "@/assets/Apex.png";
 import Avatar from "@/assets/Avatar.png";
-
 import Image from "next/image";
 
 import {
@@ -31,17 +28,17 @@ import {
 } from "@/components/ui/sidebar";
 
 const mainItems = [
-  { title: "Dashboard", icon: Grid2X2, url: "#", active: true },
-  { title: "My Cards", icon: CreditCard, url: "#" },
-  { title: "Transfer", icon: ArrowLeftRight, url: "#" },
-  { title: "Transactions", icon: History, url: "#" },
-  { title: "Payments", icon: ReceiptText, url: "#" },
-  { title: "Exchange", icon: RefreshCcw, url: "#" },
+  { title: "Dashboard", icon: RiLayoutGridLine, url: "#", active: true },
+  { title: "My Cards", icon: RiBankCardLine, url: "#" },
+  { title: "Transfer", icon: RiArrowLeftRightLine, url: "#" },
+  { title: "Transactions", icon: RiHistoryLine, url: "#" },
+  { title: "Payments", icon: RiBillLine, url: "#" },
+  { title: "Exchange", icon: RiExchangeDollarLine, url: "#" },
 ];
 
 const otherItems = [
-  { title: "Settings", icon: Settings, url: "#" },
-  { title: "Support", icon: Headphones, url: "#" },
+  { title: "Settings", icon: RiSettings2Line, url: "#" },
+  { title: "Support", icon: RiHeadphoneLine, url: "#" },
 ];
 
 export function AppSidebar() {
@@ -53,7 +50,7 @@ export function AppSidebar() {
         <div>
           <div className="px-6 pt-6 flex items-center gap-3">
             <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
-              <Image src={ApexLogo} alt="Apex Logo"></Image>
+              <Image src={ApexLogo} alt="Apex Logo" />
             </div>
             <div>
               <p className="font-semibold mb-1 text-sm">Apex</p>
@@ -72,23 +69,21 @@ export function AppSidebar() {
 
             <SidebarGroupContent>
               <SidebarMenu>
-                {mainItems.map((item) => (
+                {mainItems.map(item => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <a
                         href={item.url}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-                          ${
-                            item.active
-                              ? "bg-gray-100 text-text-strong-950"
-                              : "text-neutral-600 hover:bg-gray-100"
-                          }
-                        `}
+                          ${item.active
+                            ? "bg-gray-100 text-text-strong-950"
+                            : "text-neutral-600 hover:bg-gray-100"
+                          }`}
                       >
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
                         {item.active && (
-                          <ChevronRight className="ml-auto h-4 w-4 text-neutral-900" />
+                          <RiArrowRightSLine className="ml-auto h-4 w-4 text-neutral-900" />
                         )}
                       </a>
                     </SidebarMenuButton>
@@ -106,7 +101,7 @@ export function AppSidebar() {
 
             <SidebarGroupContent>
               <SidebarMenu>
-                {otherItems.map((item) => (
+                {otherItems.map(item => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <a
@@ -126,7 +121,7 @@ export function AppSidebar() {
 
         {/* ---------------- FOOTER USER CARD ---------------- */}
         <div className="px-6 py-4">
-            <div className="border-t mb-2"></div>
+          <div className="border-t mb-2"></div>
           <div className="flex items-center gap-3 cursor-pointer">
             <Image
               src={Avatar}
@@ -135,14 +130,13 @@ export function AppSidebar() {
               height={36}
               className="rounded-full"
             />
-            
             <div className="flex-1">
               <p className="text-sm font-medium">Arthur Taylor</p>
               <p className="text-xs text-muted-foreground">
                 arthur@alignui.com
               </p>
             </div>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            <RiArrowRightSLine className="h-4 w-4 text-muted-foreground" />
           </div>
         </div>
       </SidebarContent>
