@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 import { enqueue, getQueueLength, getQueueFront } from "../../lib/queue";
-import { Loader2, CheckCircle2, XCircle, ArrowUpRight, Eraser } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, ArrowUpRight, Eraser, House } from "lucide-react";
 
 export default function DemoPage() {
   const [responses, setResponses] = useState<any[]>([]);
@@ -96,13 +97,17 @@ export default function DemoPage() {
       <div className="w-full lg:w-1/3 p-10 flex flex-col gap-5 border-r-2 border-blue-100 bg-white shadow-xl">
 
         {/* Title */}
-        <div className="pb-4 border-b border-gray-200">
-          <h1 className="text-4xl tracking-medium font-space text-gray-900">
-            Echo API Queue
-          </h1>
-          <p className="text-lg text-gray-400 mt-1">
-            Visualizing API queue management.
-          </p>
+        <div className="pb-4 border-b flex items-center justify-around  border-gray-200">
+          <div>
+            <h1 className="text-4xl tracking-medium font-space text-gray-900">
+              Echo API Queue
+            </h1>
+            <p className="text-lg text-gray-400 mt-1">
+              Visualizing API queue management.
+            </p>
+          </div>
+
+
         </div>
 
         {/* Button */}
@@ -133,9 +138,18 @@ export default function DemoPage() {
 
       {/* RIGHT RESPONSE LOG */}
       <div className="w-full lg:w-2/3 p-10 flex bg-linear-to-br from-white to-blue-50 flex-col">
-        <h2 className="text-3xl font-thin mb-6 text-gray-800">
-          Response Log
-        </h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-3xl font-thin mb-0.5 text-neutral-800">
+            Response Log
+          </h2>
+
+          <div>
+            <Link href="/" className="text-neutral-800 mt-2 ml-2 inline-block hover:underline">
+              <House className="w-6 h-6 inline-block mb-0.5" />
+            </Link>
+          </div>
+        </div>
+
 
         <div className="grow max-h-[80vh] bg-white  rounded-md p-6 shadow-inner border border-gray-200 overflow-y-auto space-y-4">
 
