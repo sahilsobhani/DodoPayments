@@ -92,9 +92,9 @@ export default function DemoPage() {
   // Main UI
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-space flex">
+    <div className="min-h-screen bg-white text-gray-900 font-space flex flex-col md:flex-row">
       {/* LEFT SIDEBAR */}
-      <div className="w-full lg:w-1/3 p-10 flex flex-col gap-5 border-r-2 border-blue-100 bg-white shadow-xl">
+      <div className="w-full md:w-1/3 p-6 lg:p-10 flex flex-col gap-5 border-b-2 lg:border-b-0 lg:border-r-2 border-blue-100 bg-white shadow-xl">
 
         {/* Title */}
         <div className="pb-4 border-b flex items-center justify-around  border-gray-200">
@@ -137,7 +137,7 @@ export default function DemoPage() {
       </div>
 
       {/* RIGHT RESPONSE LOG */}
-      <div className="w-full lg:w-2/3 p-10 flex bg-linear-to-br from-white to-blue-50 flex-col">
+      <div className="w-full md:w-2/3 p-6 md:p-10 flex bg-linear-to-br from-white to-blue-50 flex-col">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-3xl font-thin mb-0.5 text-neutral-800">
             Response Log
@@ -167,14 +167,14 @@ export default function DemoPage() {
                   : "border-red-800 bg-red-50"
                   }`}
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="md:flex flex-col items-center gap-3 mb-2">
                   {res.ok ? (
-                    <CheckCircle2 className="text-green-950 w-5 h-5" />
+                    <CheckCircle2 className="text-green-950 w-5 md:block hidden h-5" />
                   ) : (
-                    <XCircle className="text-red-500 w-5 h-5" />
+                    <XCircle className="text-red-500 w-5 h-5 md:block hidden" />
                   )}
 
-                  <span className={`font-semibold text-lg ${res.ok ? "text-green-950" : "text-red-950"}`}>
+                  <span className={`font-semibold text-base md:block hidden md:text-lg ${res.ok ? "text-green-950" : "text-red-950"}`}>
                     {res.ok ? "Success" : "Rate Limit"}
                   </span>
 
