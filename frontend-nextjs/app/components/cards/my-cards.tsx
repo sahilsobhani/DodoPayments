@@ -1,11 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Plus, Wifi, CircleCheck, Wallet } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus, Wifi } from "lucide-react";
+import {
+
+  RiBankCardLine,
+  RiCheckboxCircleFill
+
+} from "react-icons/ri";
+
 import ApexLogo from "@/assets/Apex.png";
-import MasterCard from "@/assets/Mastercard.png";
+
 
 export function MyCards() {
   return (
@@ -14,7 +21,7 @@ export function MyCards() {
       {/* HEADER */}
       <div className="flex items-center justify-between">
         <h3 className="text-base font-semibold flex items-center">
-          <Wallet className="w-5 h-5 mr-2 text-neutral-700" />
+          <RiBankCardLine className="w-5 h-5 mr-2 text-neutral-700" />
           <span className="text-neutral-900">My Cards</span>
         </h3>
 
@@ -44,7 +51,7 @@ export function MyCards() {
           />
           <Wifi className="w-4 h-4 rotate-90 text-neutral-400" />
           <span className="text-xs bg-white flex justify-center items-center text-neutral-600 px-2 py-1 rounded-md border border-neutral-200">
-            <CircleCheck className="w-3 h-3 mr-1 text-green-700" />
+            <RiCheckboxCircleFill className="w-3 h-3 mr-1 text-green-600" />
             Active
           </span>
         </div>

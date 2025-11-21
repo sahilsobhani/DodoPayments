@@ -1,6 +1,15 @@
-import { ChevronRight, Landmark, LineChart, Home, RefreshCcw, CircleDollarSign } from "lucide-react";
+import { ChevronRight, CircleDollarSign } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import {
+
+  RiBankLine,
+  RiLineChartLine,
+  RiHomeSmileFill,
+  RiAmazonFill
+
+} from "react-icons/ri";
+
 
 
 const transactions: {
@@ -53,10 +62,10 @@ const transactions: {
 
 
 const iconMap: Record<IconKey, React.ReactNode> = {
-  bank: <Landmark className="w-5 h-5 text-neutral-600" />,
-  chart: <LineChart className="w-5 h-5 text-neutral-600" />,
-  home: <Home className="w-5 h-5 text-green-600" />,
-  refresh: <RefreshCcw className="w-5 h-5 text-neutral-600" />,
+  bank: <RiBankLine className="w-5 h-5 text-neutral-600" />,
+  chart: <RiLineChartLine className="w-5 h-5 text-neutral-600" />,
+  home: <RiHomeSmileFill className="w-5 h-5 text-green-600" />,
+  refresh: <RiAmazonFill className="w-5 h-5 text-neutral-600" />,
 };
 
 

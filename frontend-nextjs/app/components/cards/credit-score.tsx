@@ -1,9 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { RotateCw } from "lucide-react";
 import Image from "next/image";
 import emoji from "@/assets/Emoji.png"
+import {
+
+  RiSpeedUpLine
+
+} from "react-icons/ri";
 
 export default function CreditScore() {
   const score = 710;
@@ -15,7 +19,7 @@ export default function CreditScore() {
       {/* HEADER */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <RotateCw className="w-5 h-5 text-neutral-600" />
+          <RiSpeedUpLine className="w-5 h-5 text-neutral-600" />
           <h2 className="text-lg font-semibold text-neutral-900">Credit Score</h2>
         </div>
 

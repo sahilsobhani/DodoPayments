@@ -1,6 +1,6 @@
 "use client";
 
-import { List, MoreVertical, ReceiptText } from "lucide-react";
+import {  MoreVertical } from "lucide-react";
 import spotify from "@/assets/Spotify.png";
 import prime from "@/assets/Prime.png";
 import youtube from "@/assets/Youtube.png";
@@ -8,6 +8,12 @@ import apple from "@/assets/Apple.png";
 import applehigh from "@/assets/AppleHigh.png";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+
+  RiFileListLine,
+  RiPieChartLine
+
+} from "react-icons/ri";
 
 
 const subscriptions = [
@@ -53,7 +59,7 @@ export default function MySubscriptions() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <ReceiptText className="w-5 h-5 text-neutral-700" />
+          <RiFileListLine className="w-5 h-5 text-neutral-700" />
           <span className="text-lg font-semibold">My Subscriptions</span>
         </div>
         <Button

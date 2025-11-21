@@ -10,6 +10,8 @@ import {
   RiArrowRightSLine,
   RiArrowLeftRightLine,
   RiExchangeDollarLine,
+  RiVerifiedBadgeFill,
+  RiMoneyDollarCircleLine,
 } from "react-icons/ri";
 
 import ApexLogo from "@/assets/Apex.png";
@@ -33,7 +35,7 @@ const mainItems = [
   { title: "Transfer", icon: RiArrowLeftRightLine, url: "#" },
   { title: "Transactions", icon: RiHistoryLine, url: "#" },
   { title: "Payments", icon: RiBillLine, url: "#" },
-  { title: "Exchange", icon: RiExchangeDollarLine, url: "#" },
+  { title: "Exchange", icon: RiMoneyDollarCircleLine, url: "#" },
 ];
 
 const otherItems = [
@@ -131,10 +133,16 @@ export function AppSidebar() {
               className="rounded-full"
             />
             <div className="flex-1">
-              <p className="text-sm font-medium">Arthur Taylor</p>
+              <div className="flex items-center gap-1">
+                <p className="text-sm font-medium">Arthur Taylor</p>
+              <RiVerifiedBadgeFill className="h-4 w-4 text-blue-400 mt-1" />
+              </div>
+              
               <p className="text-xs text-muted-foreground">
                 arthur@alignui.com
+                
               </p>
+              
             </div>
             <RiArrowRightSLine className="h-4 w-4 text-muted-foreground" />
           </div>

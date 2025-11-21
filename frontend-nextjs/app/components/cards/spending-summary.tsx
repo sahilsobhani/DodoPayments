@@ -2,15 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  Clock,
+
   ShoppingBag,
-  FileCog,
-  MoreHorizontal,
   ChevronDown,
   Info,
-  ScrollText,
   CircleDollarSign
 } from "lucide-react";
+
+import {
+
+  RiFileListLine,
+  RiPieChartLine
+
+} from "react-icons/ri";
 
 import {
   PieChart,
@@ -36,7 +40,7 @@ export default function SpendingSummary() {
       {/* Header */}
       <div className="flex items-center font-inter justify-between mb-2">
         <div className="flex items-center gap-2">
-          <Clock className="w-5 h-5 text-neutral-700" />
+          <RiPieChartLine className="w-5 h-5 text-neutral-700" />
           <span className="text-lg font-semibold">Spending Summary</span>
         </div>
 
@@ -92,7 +96,7 @@ export default function SpendingSummary() {
 
         <div className="flex flex-col gap-y-2 border-x items-center">
           <div className="p-2 rounded-full bg-cyan-50">
-            <ScrollText className="w-6 h-6 text-blue-500" />
+            <RiFileListLine className="w-6 h-6 text-blue-500" />
           </div>
 
           <p className="text-sm font-medium text-muted-foreground mt-1">Utilities</p>

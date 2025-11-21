@@ -1,10 +1,15 @@
 "use client";
 
-import { ArrowLeftRight, CircleChevronDown, DollarSign } from "lucide-react";
+import { ArrowLeftRight, CircleChevronDown } from "lucide-react";
 import Image from "next/image";
 import usd from "@/assets/us.png";    // your flag icons here
 import eur from "@/assets/eu.png";
 import { Button } from "@/components/ui/button";
+import {
+
+  RiRefreshLine
+
+} from "react-icons/ri";
 
 export default function Exchange() {
   return (
@@ -12,7 +17,7 @@ export default function Exchange() {
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
-          <ArrowLeftRight className="w-5 h-5 text-neutral-600" />
+          <RiRefreshLine className="w-5 h-5 text-neutral-600" />
           <h2 className="text-lg font-medium">Exchange</h2>
         </div>
 
@@ -86,7 +91,7 @@ export default function Exchange() {
 
       {/* Exchange Button */}
       <button className="mt-2 w-full border rounded-md py-2 flex items-center justify-center gap-2 text-neutral-700 hover:bg-neutral-50 transition">
-        <DollarSign className="w-4 h-4" />
+        <RiRefreshLine className="w-5 h-5" />
         Exchange
       </button>
     </div>
