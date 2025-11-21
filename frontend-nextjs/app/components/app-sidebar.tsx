@@ -9,7 +9,7 @@ import {
   RiHeadphoneLine,
   RiArrowRightSLine,
   RiArrowLeftRightLine,
-  RiExchangeDollarLine,
+  RiExpandUpDownLine,
   RiVerifiedBadgeFill,
   RiMoneyDollarCircleLine,
 } from "react-icons/ri";
@@ -50,15 +50,21 @@ export function AppSidebar() {
 
         {/* ---------- TOP LOGO ---------- */}
         <div>
-          <div className="px-6 pt-6 flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
-              <Image src={ApexLogo} alt="Apex Logo" />
+          <div className="px-6 pt-6 flex items-center justify-between gap-3">
+            <div className="flex items-center justify-center">
+              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
+                <Image src={ApexLogo} alt="Apex Logo" />
+              </div>
+              <div className="ml-2">
+                <p className="font-semibold mb-1 text-sm">Apex</p>
+                <p className="text-xs text-muted-foreground">
+                  Finance & Banking
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="font-semibold mb-1 text-sm">Apex</p>
-              <p className="text-xs text-muted-foreground">
-                Finance & Banking
-              </p>
+
+            <div className="p-1 border border-neutral-200 rounded-md shadow-xs">
+              <RiExpandUpDownLine className="ml-auto h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700" />
             </div>
           </div>
 
@@ -135,14 +141,14 @@ export function AppSidebar() {
             <div className="flex-1">
               <div className="flex items-center gap-1">
                 <p className="text-sm font-medium">Arthur Taylor</p>
-              <RiVerifiedBadgeFill className="h-4 w-4 text-blue-400 mt-1" />
+                <RiVerifiedBadgeFill className="h-4 w-4 text-blue-400 mt-1" />
               </div>
-              
+
               <p className="text-xs text-muted-foreground">
                 arthur@alignui.com
-                
+
               </p>
-              
+
             </div>
             <RiArrowRightSLine className="h-4 w-4 text-muted-foreground" />
           </div>

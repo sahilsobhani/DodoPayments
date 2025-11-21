@@ -75,7 +75,7 @@ export default function DemoPage() {
         <div className="flex flex-col gap-2 p-3 bg-gray-50 rounded-md border border-gray-200">
           <div className="flex items-center gap-3">
             <Loader2 className="animate-spin text-blue-900 w-5 h-5" />
-            <span className="font-semibold text-gray-800">Processing - Rate Limit might have been reached</span>
+            <span className="font-semibold text-gray-800">Processing...</span>
           </div>
 
           <p className="text-sm font-mono text-gray-600 wrap-break-word">{current}</p>
