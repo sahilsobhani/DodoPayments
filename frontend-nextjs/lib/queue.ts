@@ -5,20 +5,15 @@ type Job = {
   reject: (err: any) => void;
 };
 
-// Queue & processing state
 let queue: Job[] = [];
 let processing = false;
 
-// Rate limit config
+// You can keep these even if we do not use timestamp-based limiting
 const RATE_LIMIT = 5;
 const WINDOW_MS = 60_000;
 
-// Rolling timestamps for the last requests
 let timestamps: number[] = [];
 
-
- // Adds a new job to the queue
- 
 export function enqueue(message: string) {
   return new Promise((resolve, reject) => {
     queue.push({
@@ -33,33 +28,17 @@ export function enqueue(message: string) {
 }
 
 /**
- * Internal worker that processes jobs sequentially
+ * PROCESS QUEUE
+ * - Executes jobs sequentially
+ * - If a 429 happens → pause 1 minute → retry
  */
 async function processQueue() {
   if (processing) return;
   processing = true;
 
   while (queue.length > 0) {
-    const now = Date.now();
-
-    // Remove timestamps older than 60s
-    timestamps = timestamps.filter(t => now - t < WINDOW_MS);
-
-    // If we hit the rate limit → wait until next available slot
-    if (timestamps.length >= RATE_LIMIT) {
-      const earliest = timestamps[0];
-      const wait = WINDOW_MS - (now - earliest);
-
-      console.log(
-        ` Rate limit reached. Waiting ${(wait / 1000).toFixed(1)}s...`
-      );
-
-      await sleep(wait);
-      continue; // Re-check after waiting
-    }
-
-    // Pull next job
     const job = queue.shift()!;
+
     try {
       const res = await fetch("http://localhost:3001/echo", {
         method: "POST",
@@ -67,10 +46,31 @@ async function processQueue() {
         body: JSON.stringify({ message: job.message })
       });
 
+      // --- HANDLE RATE LIMIT ---
+      if (res.status === 429) {
+        console.log("⚠️ 429 received. Cooling down for 60 seconds...");
+
+        // Push job back to front (retry)
+        queue.unshift(job);
+
+        // Pause 1 minute
+        await sleep(WINDOW_MS);
+
+        // Continue loop; DO NOT mark success
+        continue;
+      }
+
+      // --- NORMAL SUCCESS ---
       const json = await res.json();
 
-      if (res.ok) job.resolve(json);
-      else job.reject(json);
+      if (res.ok) {
+        job.resolve(json);
+
+        // Record timestamp (optional)
+        timestamps.push(Date.now());
+      } else {
+        job.reject(json);
+      }
 
     } catch (err) {
       job.reject({
@@ -79,25 +79,16 @@ async function processQueue() {
         detail: err
       });
     }
-
-    // Recorded processed timestamp
-    timestamps.push(Date.now());
   }
 
   processing = false;
 }
 
-/**
- * Sleep helper
- */
+/** Sleep helper */
 function sleep(ms: number) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-/**
- * Small helper for UI
- */
 export function getQueueLength() {
   return queue.length;
 }
-

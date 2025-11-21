@@ -75,7 +75,6 @@ export function MyCards() {
           {/* Right circle */}
           <div className="w-4 h-4 rounded-full bg-[#F79E1B] opacity-90"></div>
         </div>
-
       </div>
 
       {/* SWITCH TABS (Daily/Weekly/Monthly) */}

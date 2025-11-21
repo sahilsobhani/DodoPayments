@@ -100,7 +100,7 @@ export default function MySubscriptions() {
       {/* Subscription List */}
       <div className="flex flex-col divide-y divide-neutral-200">
         {subscriptions.map((item) => (
-          <div key={item.id} className="flex items-center justify-between py-4">
+          <div key={item.id} className="flex items-center justify-between py-1">
             {/* Left: Logo + Info */}
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-full border-neutral-200 border">
