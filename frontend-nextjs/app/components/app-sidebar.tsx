@@ -4,13 +4,14 @@ import {
   LayoutDashboard,
   CreditCard,
   ArrowLeftRight,
-  Clock,
-  Receipt,
+  History,
+  ReceiptText,
   RefreshCcw,
   Settings,
   Headphones,
   ChevronRight,
   ShieldAlert,
+  Grid2X2
 } from "lucide-react";
 
 import ApexLogo from "@/assets/Apex.png";
@@ -30,11 +31,11 @@ import {
 } from "@/components/ui/sidebar";
 
 const mainItems = [
-  { title: "Dashboard", icon: LayoutDashboard, url: "#", active: true },
+  { title: "Dashboard", icon: Grid2X2, url: "#", active: true },
   { title: "My Cards", icon: CreditCard, url: "#" },
   { title: "Transfer", icon: ArrowLeftRight, url: "#" },
-  { title: "Transactions", icon: Clock, url: "#" },
-  { title: "Payments", icon: Receipt, url: "#" },
+  { title: "Transactions", icon: History, url: "#" },
+  { title: "Payments", icon: ReceiptText, url: "#" },
   { title: "Exchange", icon: RefreshCcw, url: "#" },
 ];
 

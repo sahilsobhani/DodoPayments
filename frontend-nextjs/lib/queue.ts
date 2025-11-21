@@ -16,9 +16,9 @@ const WINDOW_MS = 60_000;
 // Rolling timestamps for the last requests
 let timestamps: number[] = [];
 
-/**
- * Adds a new job to the queue
- */
+
+ // Adds a new job to the queue
+ 
 export function enqueue(message: string) {
   return new Promise((resolve, reject) => {
     queue.push({
