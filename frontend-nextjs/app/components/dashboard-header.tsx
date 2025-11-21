@@ -11,7 +11,7 @@ export function DashboardHeader() {
     return (
         <header className="
             w-full h-20 flex items-center justify-between 
-            font-inter bg-white px-4 sm:px-6 mt-4 sm:mt-8
+            font-inter bg-white px-4 sm:px-6 mt-4 mb-2 sm:mt-2
         ">
 
             {/* LEFT: Avatar + Text */}
@@ -21,7 +21,7 @@ export function DashboardHeader() {
                     alt="User Avatar"
                     width={42}
                     height={42}
-                    className="rounded-full sm:w-[48px] sm:h-[48px]"
+                    className="rounded-full sm:w-12 sm:h-12"
                 />
 
                 {/* Hide text on extra small screens */}
