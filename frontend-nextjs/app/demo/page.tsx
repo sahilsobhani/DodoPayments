@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { enqueue, getQueueLength } from "../../lib/queue";
+import { enqueue, getQueueLength, getQueueFront } from "../../lib/queue";
 import { Loader2, CheckCircle2, XCircle, ArrowUpRight, Eraser } from "lucide-react";
 
 export default function DemoPage() {
@@ -10,9 +10,11 @@ export default function DemoPage() {
   const [queueLength, setQueueLength] = useState(0);
   const [counterVar, setCounterVar] = useState(1)
 
+
   useEffect(() => {
     const interval = setInterval(() => {
       setQueueLength(getQueueLength());
+      setCurrent(getQueueFront() ? getQueueFront().message : null);
     }, 300);
 
     return () => clearInterval(interval);
@@ -29,8 +31,6 @@ export default function DemoPage() {
     setCounterVar(counterVar + 1);
 
     const msg = `Welcome to Dodo Payments Demo by Sahil - The Request ID is ${randomId}`;
-
-    setCurrent(msg);
 
     try {
       const res = await enqueue(msg);

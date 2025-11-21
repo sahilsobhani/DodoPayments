@@ -48,7 +48,7 @@ async function processQueue() {
 
       // --- HANDLE RATE LIMIT ---
       if (res.status === 429) {
-        console.log("⚠️ 429 received. Cooling down for 60 seconds...");
+        console.log("429 received. Cooling down for 60 seconds...");
 
         // Push job back to front (retry)
         queue.unshift(job);
@@ -91,4 +91,7 @@ function sleep(ms: number) {
 
 export function getQueueLength() {
   return queue.length;
+}
+export function getQueueFront() {
+  return queue[0];
 }
