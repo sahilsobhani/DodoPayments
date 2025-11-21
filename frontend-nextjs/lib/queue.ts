@@ -40,7 +40,7 @@ async function processQueue() {
     const job = queue.shift()!;
 
     try {
-      const res = await fetch("http://localhost:3001/echo", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL}/echo`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: job.message })
