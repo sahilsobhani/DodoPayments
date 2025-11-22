@@ -1,19 +1,27 @@
 "use client";
 
+// React Imports
 import Image from "next/image";
+import { useState } from "react";
+
+// ShadCn UI Button Component
 import { Button } from "@/components/ui/button";
+
+// Icon Imports
 import { ChevronLeft, ChevronRight, Plus, Wifi } from "lucide-react";
 import {
-
   RiBankCardLine,
   RiCheckboxCircleFill
-
 } from "react-icons/ri";
 
+// Static Asset Imports
 import ApexLogo from "@/assets/Apex.png";
 
-
 export function MyCards() {
+
+  const [activeRange, setActiveRange] = useState<"daily" | "weekly" | "monthly">("weekly");
+
+
   return (
     <div className="rounded-xl p-3 border border-neutral-200 font-inter shadow-2xs bg-white h-full flex flex-col w-full">
 
@@ -21,7 +29,7 @@ export function MyCards() {
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-medium flex items-center">
           <RiBankCardLine className="w-4 h-4 mr-1.5 mt-0.5 text-neutral-600" />
-          <span className="text-md text-neutral-950">My Cards</span>
+          <span className="text-md tracking-wide text-neutral-950">My Cards</span>
         </h3>
 
         <Button
@@ -40,7 +48,7 @@ export function MyCards() {
         {/* Left icons (Bank + Active badge) */}
         <div className="flex items-center gap-1.5 mb-1">
           <Image
-            src={ApexLogo} 
+            src={ApexLogo}
             alt="Bank Icon"
             width={22}
             height={22}
@@ -81,16 +89,21 @@ export function MyCards() {
       </div>
 
       {/* Switch Tabs (Daily/Weekly/Monthly) */}
-      <div className="flex items-center my-2 justify-between border-gray-300 border bg-white rounded-sm mb-2 w-full">
-        <button className="flex-1 py-1 text-xs  text-neutral-600">
-          Daily
-        </button>
-        <button className="flex-1 py-1 text-xs border-l-2 border-r-2 bg-[#F5F7FA] font-medium ">
-          Weekly
-        </button>
-        <button className="flex-1 py-1 text-xs  text-neutral-600">
-          Monthly
-        </button>
+      <div className="flex items-center my-2 justify-between border border-gray-300 bg-white rounded-sm w-full">
+        {["daily", "weekly", "monthly"].map((range) => (
+          <button
+            key={range}
+            onClick={() => setActiveRange(range as any)}
+            className={`flex-1 py-1 text-xs transition
+             ${activeRange === range
+                ? "bg-[#F5F7FA] font-medium border-l border-r"
+                : "text-neutral-600"
+              }
+      `}
+          >
+            {range.charAt(0).toUpperCase() + range.slice(1)}
+          </button>
+        ))}
       </div>
 
       {/* Spending Limit Section */}
