@@ -15,15 +15,17 @@ import CreditScore from "@/app/components/cards/credit-score";
 export default function Home({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
+      {/* Dashboard Sidebar */}
       <AppSidebar />
       <main className="flex-1 flex flex-col overflow-hidden md:overflow-hidden overflow-y-auto">
-        <header className="h-14 flex items-center px-4 my-2 flex-shrink-0">
+        {/* Dashboard Header */}
+        <header className="h-14 flex items-center px-4 my-2 shrink-0">
           <DashboardHeader />
         </header>
-        {/* DASHBOARD GRID */}
+        {/* Dashboard Grid*/}
         <div className="grid gap-6 px-4 md:px-6 py-3 grid-cols-1 md:grid-cols-3 xl:grid-cols-3 md:h-[calc(100vh-5.5rem)] md:overflow-hidden overflow-y-auto">
 
-          {/* COLUMN 1 - 2 cards of equal height */}
+          {/* COLUMN 1 - My cards and Recent transactions */}
           <div className="flex flex-col gap-4 md:flex-1 md:min-h-0">
             <div className="md:flex-1 md:min-h-0 md:flex">
               <MyCards />
@@ -33,7 +35,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          {/* COLUMN 2 - 2 cards of equal height */}
+          {/* COLUMN 2 - Spending summary and My subscriptions */}
           <div className="flex flex-col gap-4 md:flex-1 md:min-h-0">
             <div className="md:flex-1 md:min-h-0 md:flex">
               <SpendingSummary />
@@ -43,15 +45,15 @@ export default function Home({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          {/* COLUMN 3 - 1:2:1 ratio */}
+          {/* COLUMN 3 - Total Expenses, Exchange and Credit Score  */}
           <div className="flex flex-col gap-4 md:flex-1 md:min-h-0">
-            <div className="md:flex-[1] md:min-h-0 md:flex">
+            <div className="md:flex-1 md:min-h-0 md:flex">
               <TotalExpenses />
             </div>
-            <div className="md:flex-[2] md:min-h-0 md:flex">
+            <div className="md:flex-2 md:min-h-0 md:flex">
               <Exchange />
             </div>
-            <div className="md:flex-[1] md:min-h-0 md:flex">
+            <div className="md:flex-1 md:min-h-0 md:flex">
               <CreditScore />
             </div>
           </div>
