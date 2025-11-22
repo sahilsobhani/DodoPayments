@@ -32,7 +32,7 @@ npm install
 
 ```bash
 cd backend-hono
-bun install
+npm install
 ```
 
 ### Environment Configuration
@@ -79,7 +79,7 @@ npm start
 
 #### Backend
 
-The backend is configured for deployment on Vercel. For local production builds, ensure you have Bun installed and configured.
+The backend is configured for deployment on Vercel. For local production builds, ensure you have Bun/npm installed and configured.
 
 ## Features
 
