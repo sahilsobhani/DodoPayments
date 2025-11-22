@@ -11,7 +11,7 @@ DodoPayments/
 └── README.md           
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
