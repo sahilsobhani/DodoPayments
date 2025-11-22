@@ -90,7 +90,6 @@ The application implements a sophisticated in-memory queue system with the follo
 #### 1. **Sequential Processing**
    - Jobs are processed one at a time in FIFO (First In, First Out) order
    - Prevents overwhelming the backend API with concurrent requests
-   - Ensures predictable request handling
 
 #### 2. **Automatic Rate Limit Handling at Frontend for retries**
    - Detects 429 (Too Many Requests) responses from the backend
