@@ -1,13 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+// Next.js Image Import
 import Image from "next/image";
+
+// Icon Imports from lucide-react
+import { RiSpeedUpLine } from "react-icons/ri";
+
+// ShadCn UI Button Component
+import { Button } from "@/components/ui/button";
+
+// Static Asset Import
 import emoji from "@/assets/Emoji.png"
-import {
-
-  RiSpeedUpLine
-
-} from "react-icons/ri";
 
 export default function CreditScore() {
   const score = 710;
@@ -16,7 +19,7 @@ export default function CreditScore() {
 
   return (
     <div className="bg-white rounded-xl shadow-2xs border border-neutral-200 p-2.5 font-inter flex flex-col gap-2.5 h-full w-full">
-      {/* HEADER */}
+      {/* Header */}
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-1.5">
           <RiSpeedUpLine className="w-4 h-4 text-neutral-600" />
@@ -35,7 +38,7 @@ export default function CreditScore() {
       {/* Divider */}
       <div className="border-t border-neutral-200" />
 
-      {/* SCORE TEXT + EMOJI */}
+      {/* Credit score + Emoji reaction*/}
       <div className="flex items-center justify-between w-full">
         <div className="min-w-0 flex-1">
           <p className="text-neutral-900 text-sm">
@@ -46,13 +49,13 @@ export default function CreditScore() {
           </p>
         </div>
 
-        {/* EMOJI */}
-        <div className="p-1.5 rounded-full bg-[#FFF1EB] flex-shrink-0">
+        {/* Emoji */}
+        <div className="p-1.5 rounded-full bg-[#FFF1EB] shrink-0">
           <Image className="w-6 h-6" src={emoji} alt="Happy Emoji"/>
         </div>
       </div>
 
-      {/* RECTANGULAR CREDIT BAR */}
+      {/* Credit bar chart*/}
       <div className="flex mt-1 flex-wrap gap-0.5">
         {[...Array(maxSegments)].map((_, i) => (
           <div
