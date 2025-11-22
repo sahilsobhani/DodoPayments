@@ -17,10 +17,10 @@ const WINDOW_MS = 60_000;
 
 let timestamps: number[] = [];
 
-export function enqueue(message: string) {
+export function enqueue(message: string, id: string): Promise<any> {
   return new Promise((resolve, reject) => {
     queue.push({
-      id: crypto.randomUUID(),
+      id,
       message,
       resolve,
       reject
@@ -51,7 +51,7 @@ async function processQueue() {
 
       // if 429, retry after cooldown for 1 minute
       if (res.status === 429) {
-        console.log("429 received. Cooling down for 60 seconds...");
+        console.log("Rate Limit reached! Cooling down for 60 seconds...");
 
         // Push job back to front (retry)
         queue.unshift(job);
