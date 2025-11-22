@@ -1,22 +1,13 @@
 "use client"
 
+// ShadCn UI Button Component
 import { Button } from "@/components/ui/button";
-import {
 
-  ShoppingBag,
-  ChevronDown,
-  Info,
-  CircleDollarSign
-} from "lucide-react";
+// Icon Imports from lucide-react and remixicon
+import { ShoppingBag, ChevronDown, CircleDollarSign } from "lucide-react";
+import { RiFileListLine, RiInformation2Fill, RiPieChartLine } from "react-icons/ri";
 
-import {
-
-  RiFileListLine,
-  RiInformation2Fill,
-  RiPieChartLine
-
-} from "react-icons/ri";
-
+// Recharts Imports for Pie Chart
 import {
   PieChart,
   Pie,
@@ -37,12 +28,12 @@ export default function SpendingSummary() {
   ];
 
   return (
-    <div className="bg-white rounded-xl border shadow-2xs border-neutral-200 p-2.5 h-full flex flex-col w-full">
+    <div className="bg-white rounded-xl border shadow-2xs border-neutral-200 p-3 h-full flex flex-col w-full">
       {/* Header */}
       <div className="flex items-center font-inter justify-between mb-2">
         <div className="flex items-center gap-1.5">
-          <RiPieChartLine className="w-4 h-4 text-neutral-700" />
-          <span className="text-sm font-semibold">Spending Summary</span>
+          <RiPieChartLine className="w-4 h-4 text-neutral-600" />
+          <span className="text-sm font-medium text-neutral-950 tracking-wide">Spending Summary</span>
         </div>
 
         <Button
@@ -57,7 +48,7 @@ export default function SpendingSummary() {
 
       {/* Semi Circle Chart */}
       <div className="w-full h-24 mt-2 border-b border-neutral-200 border-t p-1.5 relative">
-        <ResponsiveContainer width="100%" height="190%">
+        <ResponsiveContainer width="100%" height="200%">
           <PieChart>
             <Pie
               data={data}
@@ -115,7 +106,7 @@ export default function SpendingSummary() {
       </div>
 
       {/* Footer Note */}
-      <div className="mt-6 text-xs flex justify-between text-neutral-500 border-neutral-200 border rounded-md items-center p-1.5 text-center">
+      <div className="mt-7 text-xs flex justify-between text-neutral-500 border-neutral-200 border rounded-md items-center p-1.5 text-center">
         Your weekly spending limit is ${limit}.
         <RiInformation2Fill className="w-3 h-3 items-center justify-center text-neutral-400" />
       </div>

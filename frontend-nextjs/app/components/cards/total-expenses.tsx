@@ -18,7 +18,7 @@ export default function TotalExpenses() {
       {/* TOP ROW */}
       <div className="flex justify-between mt-4 items-start w-full">
         {/* Icon Button */}
-        <button className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-50 border border-neutral-200 flex-shrink-0">
+        <button className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-50 border border-neutral-200 shrink-0">
           <ArrowDownLeft className="w-4 h-4 text-neutral-600" />
         </button>
 

@@ -17,7 +17,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       {/* Dashboard Sidebar */}
       <AppSidebar />
-      <main className="flex-1 flex flex-col overflow-hidden md:overflow-hidden overflow-y-auto">
+      <main className="flex-1 flex flex-col overflow-hidden md:overflow-clip overflow-y-clip">
         {/* Dashboard Header */}
         <header className="h-14 flex items-center px-4 my-2 shrink-0">
           <DashboardHeader />
