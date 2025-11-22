@@ -17,7 +17,7 @@ import {
 // Static Asset Imports
 import ApexLogo from "@/assets/Apex.png";
 
-export function MyCards() {
+export default function MyCards() {
 
   const [activeRange, setActiveRange] = useState<"daily" | "weekly" | "monthly">("weekly");
 

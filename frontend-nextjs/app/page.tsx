@@ -1,10 +1,12 @@
-import Image from "next/image";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
+import { SidebarProvider } from "@/components/ui/sidebar"
+
+//Sidebar and Header Imports
 import { AppSidebar } from "@/app/components/app-sidebar"
 import { DashboardHeader } from "@/app/components/dashboard-header"
 
-import { MyCards } from "@/app/components/cards/my-cards";
+// Card Component Imports
+import  MyCards  from "@/app/components/cards/my-cards";
 import RecentTransactions from "@/app/components/cards/recent-transactions";
 import SpendingSummary from "@/app/components/cards/spending-summary";
 import MySubscriptions from "@/app/components/cards/my-subscriptions";
@@ -23,7 +25,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
           <DashboardHeader />
         </header>
         {/* Dashboard Grid*/}
-        <div className="grid gap-6 px-4 md:px-6 py-3 grid-cols-1 md:grid-cols-3 xl:grid-cols-3 md:h-[calc(100vh-5.5rem)] md:overflow-hidden overflow-y-auto">
+        <div className="grid gap-6 px-4 md:px-6 py-3 grid-cols-1 md:grid-cols-3 xl:grid-cols-3 md:h-[calc(100vh-5.5rem)] md:overflow-clip overflow-y-clip">
 
           {/* COLUMN 1 - My cards and Recent transactions */}
           <div className="flex flex-col gap-4 md:flex-1 md:min-h-0">
