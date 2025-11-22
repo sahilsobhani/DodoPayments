@@ -1,5 +1,6 @@
 "use client";
 
+// Icon Imports from remixicon
 import {
   RiLayoutGridLine,
   RiBankCardLine,
@@ -14,10 +15,12 @@ import {
   RiMoneyDollarCircleLine,
 } from "react-icons/ri";
 
+// Static Asset Imports
 import ApexLogo from "@/assets/Apex.png";
 import Avatar from "@/assets/Avatar.png";
 import Image from "next/image";
 
+// ShadCn UI Sidebar Components
 import {
   Sidebar,
   SidebarContent,
@@ -29,6 +32,11 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
+// Utility function for conditional classNames
+import { cn } from "@/lib/utils";
+
+
+// Sidebar Feature Items Mapping configuration
 const mainItems = [
   { title: "Dashboard", icon: RiLayoutGridLine, url: "#", active: true },
   { title: "My Cards", icon: RiBankCardLine, url: "#" },
@@ -38,6 +46,7 @@ const mainItems = [
   { title: "Exchange", icon: RiMoneyDollarCircleLine, url: "#" },
 ];
 
+// Sidebar Other Items Mapping configuration
 const otherItems = [
   { title: "Settings", icon: RiSettings2Line, url: "#" },
   { title: "Support", icon: RiHeadphoneLine, url: "#" },
@@ -45,34 +54,36 @@ const otherItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r bg-white w-64 font-inter font-medium">
+    <Sidebar className="border-r bg-[#ffffff] w-64 font-inter font-medium">
       <SidebarContent className="flex flex-col justify-between h-full">
 
-        {/* ---------- TOP LOGO ---------- */}
+        {/* ---------- Sidebar Header ---------- */}
+
         <div>
-          <div className="px-6 pt-6 flex items-center justify-between gap-3">
+          <div className="px-6 pt-6 flex items-center font-inter justify-between gap-3">
             <div className="flex items-center justify-center">
               <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
                 <Image src={ApexLogo} alt="Apex Logo" />
               </div>
               <div className="ml-2">
-                <p className="font-semibold mb-1 text-sm">Apex</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="font-medium mb-1 text-sm">Apex</p>
+                <p className="text-xs text-neutral-600 font-normal">
                   Finance & Banking
                 </p>
               </div>
             </div>
 
-            <div className="p-1 border border-neutral-200 rounded-md shadow-xs">
-              <RiExpandUpDownLine className="ml-auto h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700" />
+            <div className="p-1 border border-neutral-200 hover:border-neutral-300 rounded-md shadow-xs">
+              <RiExpandUpDownLine className="ml-auto h-5 w-5 text-neutral-600 cursor-pointer hover:text-neutral-700" />
             </div>
           </div>
 
-          {/* ---------------- MAIN SECTION ---------------- */}
-          <SidebarGroup className="mt-4 border-t">
-            <div className="bg-neutral-100 w-full h-px rounded"></div>
-            <SidebarGroupLabel className="px-3 text-xs text-muted-foreground tracking-widest">
-              MAIN
+          {/* ---------------- Sidebar Feature List ---------------- */}
+
+          <SidebarGroup className="mt-4">
+            <div className="border-t mb-2 mx-3"></div>
+            <SidebarGroupLabel className="px-3 uppercase text-xs text-muted-foreground tracking-widest">
+              Main
             </SidebarGroupLabel>
 
             <SidebarGroupContent>
@@ -82,13 +93,21 @@ export function AppSidebar() {
                     <SidebarMenuButton asChild>
                       <a
                         href={item.url}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-                          ${item.active
-                            ? "bg-gray-100 text-text-strong-950"
-                            : "text-neutral-600 hover:bg-gray-100"
-                          }`}
+                        className={cn(
+                          "flex items-center gap-3 px-3 py-2 rounded-md text-sm",
+                          item.active
+                            ? "bg-[#F5F7FA] font-medium text-strong-950"
+                            : "text-neutral-600 hover:bg-[#F5F7FA]"
+                        )}
                       >
-                        <item.icon className="h-4 w-4" />
+                        <item.icon
+                          className={cn(
+                            "h-4 w-4",
+                            item.active
+                              ? "text-orange-500 bg-gray-100"
+                              : "text-neutral-600 hover:bg-gray-100"
+                          )}
+                        />
                         <span>{item.title}</span>
                         {item.active && (
                           <RiArrowRightSLine className="ml-auto h-4 w-4 text-neutral-900" />
@@ -101,10 +120,11 @@ export function AppSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
 
-          {/* ---------------- OTHERS SECTION ---------------- */}
+          {/* ---------------- Others Section in Sidebar ---------------- */}
+
           <SidebarGroup className="mt-6">
-            <SidebarGroupLabel className="px-3 text-xs text-muted-foreground tracking-widest">
-              OTHERS
+            <SidebarGroupLabel className="px-3 text-xs uppercase text-muted-foreground tracking-widest">
+              Others
             </SidebarGroupLabel>
 
             <SidebarGroupContent>
@@ -127,7 +147,7 @@ export function AppSidebar() {
           </SidebarGroup>
         </div>
 
-        {/* ---------------- FOOTER USER CARD ---------------- */}
+        {/* ---------------- Sidebar Footer with user information ---------------- */}
         <div className="px-6 py-4">
           <div className="border-t mb-2"></div>
           <div className="flex items-center gap-3 cursor-pointer">
