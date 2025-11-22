@@ -1,64 +1,62 @@
 "use client";
 
+// Next.js Image and Link Imports
 import Image from "next/image";
 import Link from "next/link";
 
-import { BellDot, Search, ArrowUpRight } from "lucide-react";
+// Icon Imports from lucide-react and remixicons
+import { BellDot, Search } from "lucide-react";
+import { RiArrowRightUpLine } from "react-icons/ri";
+
+// ShadCn UI Button Component
 import { Button } from "@/components/ui/button";
+
+// Static Asset Imports
 import avatar from "@/assets/Avatar.png";
 
-export function DashboardHeader() {
-    return (
-        <header className="
-            w-full h-20 flex items-center justify-between 
-            font-inter bg-white px-4 sm:px-6 mt-4 mb-2 sm:mt-2
-        ">
+export function DashboardHeader({ userName = "Arthur Taylor" }) {
+  return (
+    <header className="w-full flex items-center justify-between bg-white px-2 sm:px-4 py-3 font-inter">
 
-            {/* LEFT: Avatar + Text */}
-            <div className="flex items-center gap-3 sm:gap-4">
-                <Image
-                    src={avatar}
-                    alt="User Avatar"
-                    width={42}
-                    height={42}
-                    className="rounded-full sm:w-12 sm:h-12"
-                />
+      {/* LEFT SECTION  - Username and Avatar*/}
+      <div className="flex items-center gap-3 sm:gap-4">
+        <Image
+          src={avatar}
+          alt="User Avatar"
+          width={48}
+          height={48}
+          className="rounded-full w-10 h-10 sm:w-12 sm:h-12"
+        />
 
-                {/* Hide text on extra small screens */}
-                <div className="hidden md:block">
-                    <h2 className="text-base sm:text-lg font-medium">Arthur Taylor</h2>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                        Welcome back to Apex 👋🏻
-                    </p>
-                </div>
-            </div>
+        <div className="hidden md:block">
+          <h2 className="text-base sm:text-lg text-neutral-950 font-medium">{userName}</h2>
+          <p className="text-xs sm:text-sm text-neutral-600">
+            Welcome back to Apex 👋🏻
+          </p>
+        </div>
+      </div>
 
-            {/* RIGHT: Icons + Button */}
-            <div className="flex items-center gap-2 sm:gap-3">
-                <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-md">
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-800" />
-                </button>
+      {/* RIGHT SECTION  -  Buttons and CTA*/}
+      <div className="flex items-center gap-2 sm:gap-3">
+        
+        <Button variant="ghost" size="icon">
+          <Search className="h-5 w-5 text-neutral-800" />
+        </Button>
 
-                <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-md">
-                    <BellDot className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-800" />
-                </button>
+        <Button variant="ghost" size="icon">
+          <BellDot className="h-5 w-5 text-neutral-800" />
+        </Button>
 
-                {/* Button becomes smaller on mobile */}
-                <Button
-                    asChild
-                    className="
-                        bg-orange-500 hover:bg-orange-600 text-white 
-                        rounded-md flex items-center gap-1 sm:gap-2 
-                        px-3 py-2 sm:px-6 font-inter font-medium text-sm sm:text-base
-                    "
-                >
-                    <Link href="/demo" className="flex items-center">
-                        <span className="hidden md:inline">Try API Demo</span>
-                        <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                    </Link>
-                </Button>
-            </div>
-
-        </header>
-    );
+        <Button
+          asChild
+          className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-3 sm:px-6"
+        >
+          <Link href="/demo" className="flex items-center gap-1 sm:gap-2">
+            <span className="hidden md:inline">Try API Demo</span>
+            <RiArrowRightUpLine className="h-4 w-4 sm:h-5 sm:w-5" />
+          </Link>
+        </Button>
+      </div>
+    </header>
+  );
 }
