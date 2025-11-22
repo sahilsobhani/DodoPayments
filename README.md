@@ -32,7 +32,7 @@ npm install
 
 ```bash
 cd backend-hono
-bun install
+npm install
 ```
 
 ### Environment Configuration
@@ -53,7 +53,7 @@ NEXT_PUBLIC_BACKEND_PROD_URL=`Your backend url`
 
 ```bash
 cd backend-hono
-bun run dev
+npm run dev
 ```
 
 The backend will start on `http://localhost:3001`
@@ -79,7 +79,7 @@ npm start
 
 #### Backend
 
-The backend is configured for deployment on Vercel. For local production builds, ensure you have Bun installed and configured.
+The backend is configured for deployment on Vercel. For local production builds, ensure you have Bun/npm installed and configured.
 
 ## Features
 
@@ -90,7 +90,6 @@ The application implements a sophisticated in-memory queue system with the follo
 #### 1. **Sequential Processing**
    - Jobs are processed one at a time in FIFO (First In, First Out) order
    - Prevents overwhelming the backend API with concurrent requests
-   - Ensures predictable request handling
 
 #### 2. **Automatic Rate Limit Handling at Frontend for retries**
    - Detects 429 (Too Many Requests) responses from the backend
