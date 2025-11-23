@@ -53,7 +53,7 @@ NEXT_PUBLIC_BACKEND_PROD_URL=`Your backend url`
 
 ```bash
 cd backend-hono
-bun run dev
+npm run dev
 ```
 
 The backend will start on `http://localhost:3001`
